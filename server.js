@@ -38,7 +38,9 @@ inquirer
       case 'View all departments' : 
         console.log('view all departments', data);
       case 'View all roles' :
-        console.log('view all roles', data)
+        console.log('view all roles', data);
+      case 'Add a description' :
+        console.log('add a department', data);
     }
 });
 
