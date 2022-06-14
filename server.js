@@ -103,7 +103,7 @@ const addARole = () => {
 };
 
 const addAnEmployee = () => {
-  db.query('SELECT * FROM employee', (err, response) => {
+  db.query('SELECT * FROM employee JOIN employee_role ON ', (err, response) => {
     if (err) throw err;
     inquirer
       .prompt([
