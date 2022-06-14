@@ -16,10 +16,31 @@ const db = mysql.createConnection(
     user: 'root',
     // MySQL password
     password: 'rootpassword',
-    database: 'classlist_db'
+    database: 'company_db'
   },
-  console.log(`Connected to the classlist_db database.`)
+  console.log(`Connected to the company_db database.`)
 );
+
+// Inquirer Questions
+inquirer
+  .prompt([
+    {
+      type: 'list',
+      message: 'Please choose an option:',
+      name: 'userChoice',
+      choices: ['View all departments', 'View all roles', 'View all employees', 'Add a department', 'Add a role', 'Add an employee', 'Update an employee role'],
+    }
+  ])
+  .then((data) => {
+    const choice = data.userChoice;
+    //console.log(choice);
+    switch (choice) {
+      case 'View all departments' : 
+        console.log('view all departments', data);
+      case 'View all roles' :
+        console.log('view all roles', data)
+    }
+});
 
 // Default response for any other request (Not Found)
 app.use((req, res) => {
